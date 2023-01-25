@@ -2,4 +2,5 @@
     <neuron name = "0" type = "sensor" linkName = "Torso" />
     <neuron name = "1" type = "sensor" linkName = "BackLeg" />
     <neuron name = "2" type = "sensor" linkName = "FrontLeg" />
+    <synapse sourceNeuronName = "0" targetNeuronName = "3" weight = "1.0" />
 </neuralNetwork>
