@@ -48,5 +48,3 @@ CreateWorld()
 #CreateRobot()
 Generate_Body()
 Generate_Brain()
-#%%
-#%%
