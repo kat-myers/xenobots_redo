@@ -41,12 +41,19 @@ def Generate_Brain():
     pyrosim.Send_Motor_Neuron(name = 3, jointName = "Torso_BackLeg")
     pyrosim.Send_Motor_Neuron(name = 4, jointName = "Torso_FrontLeg")
     
-    pyrosim.Send_Synapse(sourceNeuronName = 5, targetNeuronName = 3, weight = 0)
-    pyrosim.Send_Synapse(sourceNeuronName = 5, targetNeuronName = 3, weight = -2.0)
-    pyrosim.Send_Synapse(sourceNeuronName = 5, targetNeuronName = 3, weight = 0)
-    pyrosim.Send_Synapse(sourceNeuronName = 5, targetNeuronName = 4, weight = 0)
-    pyrosim.Send_Synapse(sourceNeuronName = 5, targetNeuronName = 4, weight = 0)
-    pyrosim.Send_Synapse(sourceNeuronName = 5, targetNeuronName = 4, weight = 0.25)
+    pyrosim.Send_Synapse(sourceNeuronName = 0, targetNeuronName = 3, weight = 10)
+    pyrosim.Send_Synapse(sourceNeuronName = 1, targetNeuronName = 3, weight = -2.0)
+    pyrosim.Send_Synapse(sourceNeuronName = 2, targetNeuronName = 3, weight = 10)
+    pyrosim.Send_Synapse(sourceNeuronName = 0, targetNeuronName = 4, weight = 10)
+    pyrosim.Send_Synapse(sourceNeuronName = 1, targetNeuronName = 4, weight = 10)
+    pyrosim.Send_Synapse(sourceNeuronName = 2, targetNeuronName = 4, weight = 0.25)
+    
+    pyrosim.Send_Synapse(sourceNeuronName = 0, targetNeuronName = 1, weight = 10)
+    pyrosim.Send_Synapse(sourceNeuronName = 3, targetNeuronName = 1, weight = -2.0)
+    pyrosim.Send_Synapse(sourceNeuronName = 2, targetNeuronName = 1, weight = 10)
+    pyrosim.Send_Synapse(sourceNeuronName = 0, targetNeuronName = 2, weight = 10)
+    pyrosim.Send_Synapse(sourceNeuronName = 1, targetNeuronName = 2, weight = 10)
+    pyrosim.Send_Synapse(sourceNeuronName = 3, targetNeuronName = 2, weight = 0.25)
 
     pyrosim.End()
     
