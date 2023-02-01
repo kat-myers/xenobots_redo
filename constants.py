@@ -14,6 +14,6 @@ fl_frequency = 100
 fl_phaseOffset = -10
 
 iterations = 1000
-sleep_time = 1/60
+sleep_time = 1/20
 
-force = 500
+maxForce = 500
