@@ -1,11 +1,1 @@
-import numpy as np
-import matplotlib.pyplot as plt
-frontLegSensorValues = np.load('frontsensorvalues.npy')
-plt.plot(frontLegSensorValues)
-backLegSensorValues = np.load('backsensorvalues.npy')
-plt.plot(frontLegSensorValues, linewidth = .5, label = 'Front Leg')
-plt.plot(backLegSensorValues, linewidth = .5, label = 'Back Leg')
-# sinwave = np.load('sinwave.npy')
-# plt.plot(sinwave)
-plt.legend()
-plt.show()
+#Importsimport numpy as npimport matplotlib.pyplot as plt#AnglesbackTargetAngles = np.load("data/backTargetAngles.npy")frontTargetAngles = np.load("data/frontTargetAngles.npy")plt.plot(backTargetAngles)plt.plot(frontTargetAngles)#Load saved sensor values#backLegSensorValues = np.load("data/backLegSensorValues.npy")#frontLegSensorValues = np.load("data/frontLegSensorValues.npy")#Plotting#plt.plot(backLegSensorValues, label = "Back Leg",linewidth = 3)#plt.plot(frontLegSensorValues, label = "Front Leg")#plt.title("Front and Back Leg Sensor Values")#plt.xlabel("Step")#plt.ylabel("Sensor Value")#plt.legend()plt.show()

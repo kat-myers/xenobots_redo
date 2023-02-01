@@ -1,5 +1,1 @@
-import os
-
-for i in range(4):
-    os.system("py generate.py")
-    os.system("py simulate.py")
+#Importsimport osfrom parallelHillClimber import PARALLEL_HILL_CLIMBER phc = PARALLEL_HILL_CLIMBER()phc.Evolve("GUI")phc.Show_Best()    
