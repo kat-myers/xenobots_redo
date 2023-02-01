@@ -1,19 +1,25 @@
-import pybullet as p
-import numpy
-import time
-import pybullet_data
-import pyrosim.pyrosim as pyrosim
-import random
+#Imports
+import numpy as np
 
-bl_amplitude = numpy.pi/4
-bl_frequency = 100
-bl_phaseOffset = 0
-
-fl_amplitude = numpy.pi/4
-fl_frequency = 100
-fl_phaseOffset = -10
-
+#Variables
 iterations = 1000
-sleep_time = 1/20
 
-maxForce = 500
+maxForce = 100
+
+sleep = 1/120
+
+
+numSensorNeurons = 4
+numMotorNeurons = 8
+
+motorJointRange = 1.0
+backLegAmplitude = np.pi/4.0
+backLegFrequency = 6
+backLegPhaseOffset = 0
+frontLegAmplitude = np.pi/4.0
+frontLegFrequency = 6
+frontLegPhaseOffset = 0
+
+
+numberOfGenerations = 10
+populationSize = 10

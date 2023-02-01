@@ -1,27 +1,45 @@
-import numpy
+#Imports
+import pybullet as p
 import time
 import pybullet_data
 import pyrosim.pyrosim as pyrosim
-import random
+#import numpy as np
+#import random
 import constants as c
-import pybullet as p
-import time
 from world import WORLD
-from sensor import SENSOR
 from robot import ROBOT
+from sensor import SENSOR
+from motor import MOTOR
 
-class SIMULATION: #names class
-    def __init__(self): # defines constructor for class
-        self.world = WORLD()
-        self.robot = ROBOT()
-    
+class SIMULATION:
+    def __init__(self, directOrGUI, solutionID):
+            self.directOrGUI = directOrGUI
+        
+            if self.directOrGUI == "DIRECT":
+                p.connect(p.DIRECT)
+
+            else:
+                p.connect(p.GUI)
+                
+            self.world = WORLD()
+            self.robot = ROBOT(solutionID)
+
     def Run(self):
         for i in range(c.iterations):
             p.stepSimulation()
+            
             self.robot.Sense(i)
             self.robot.Think()
             self.robot.Act(i)
-            time.sleep(c.sleep_time)
-    
+            
+            if self.directOrGUI == "GUI":
+                time.sleep(c.sleep)
+                        
     def __del__(self):
-        p.disconnect
+        #SENSOR.Save_Values()
+        #MOTOR.Save_Values()
+        p.disconnect()
+        
+    def Get_Fitness(self):
+        self.robot.Get_Fitness()
+        
