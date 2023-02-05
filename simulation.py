@@ -1,10 +1,8 @@
-#Imports
 import pybullet as p
 import time
 import pybullet_data
 import pyrosim.pyrosim as pyrosim
-#import numpy as np
-#import random
+import numpy as np
 import constants as c
 from world import WORLD
 from robot import ROBOT
@@ -36,8 +34,6 @@ class SIMULATION:
                 time.sleep(c.sleep)
                         
     def __del__(self):
-        #SENSOR.Save_Values()
-        #MOTOR.Save_Values()
         p.disconnect()
         
     def Get_Fitness(self):

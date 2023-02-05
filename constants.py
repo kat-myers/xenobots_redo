@@ -21,5 +21,5 @@ frontLegFrequency = 6
 frontLegPhaseOffset = 0
 
 
-numberOfGenerations = 10
+numberOfGenerations = 2
 populationSize = 10
