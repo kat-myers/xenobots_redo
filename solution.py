@@ -21,6 +21,7 @@ class SOLUTION:
     def Create_Body(self):
         pyrosim.Start_URDF("body.urdf")
     
+        # Torso
         pyrosim.Send_Cube(name="Torso", pos=[0,0,1] , size=[1,1,1])
     
         #Front Leg
@@ -112,4 +113,3 @@ class SOLUTION:
 
     def Set_ID(self, newID):
         self.myID = newID
-

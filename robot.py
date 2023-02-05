@@ -59,6 +59,8 @@ class ROBOT:
         positionOfLinkZero = stateOfLinkZero[0]
         xCoordinateOfLinkZero = positionOfLinkZero[0]
         
+        ## to revise fitness function, edit here
+        
         #tempFileName = 
         #fitnessFileName = 
         
