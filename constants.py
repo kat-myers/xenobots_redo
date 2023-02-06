@@ -14,10 +14,10 @@ numMotorNeurons = 8
 
 motorJointRange = 1.0
 backLegAmplitude = np.pi/4.0
-backLegFrequency = 6
+backLegFrequency = 10
 backLegPhaseOffset = 0
 frontLegAmplitude = np.pi/4.0
-frontLegFrequency = 6
+frontLegFrequency = 10
 frontLegPhaseOffset = 0
 
 

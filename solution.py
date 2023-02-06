@@ -27,10 +27,10 @@ class SOLUTION:
         
         
         ## Extra Torso Segments
-        pyrosim.Send_Joint(name = "Torso_Torso2" , parent= "Torso" , child = "Torso2" , type = "revolute", position = [0,0.5,1], jointAxis = "1 0 0")
+        pyrosim.Send_Joint(name = "Torso_Torso2" , parent= "Torso" , child = "Torso2" , type = "revolute", position = [0,0.5,1], jointAxis = "0 1 0")
         pyrosim.Send_Cube(name="Torso2", pos=[0,0.5,0] , size=[1,1,.5])
         
-        pyrosim.Send_Joint(name = "Torso_Torso3" , parent= "Torso" , child = "Torso3" , type = "revolute", position = [0,-0.5,1], jointAxis = "1 0 0")
+        pyrosim.Send_Joint(name = "Torso_Torso3" , parent= "Torso" , child = "Torso3" , type = "revolute", position = [0,-0.5,1], jointAxis = "0 1 0")
         pyrosim.Send_Cube(name="Torso3", pos=[0,-0.5,0] , size=[1,1,.5])
 
         ## Right Leg 1
