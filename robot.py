@@ -57,7 +57,8 @@ class ROBOT:
         stateOfLinkZero = p.getLinkState(self.robotId,0)
         
         positionOfLinkZero = stateOfLinkZero[1]
-        yCoordinateOfLinkZero = positionOfLinkZero[0]
+        #yCoordinateOfLinkZero = positionOfLinkZero[0]
+        yCoordinateOfLinkZero = positionOfLinkZero[1]
         
         ## to revise fitness function, edit here
         
