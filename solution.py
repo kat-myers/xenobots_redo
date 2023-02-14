@@ -27,7 +27,7 @@ class SOLUTION:
         # [ movement away from camera (farther away from the origin of the thing), movement left and right, up and down]
 
         # initializes number of segments and which ones will have a sensor
-        self.num_segments = random.randint(1,10)
+        self.num_segments = random.randint(2,10)
         print('num_segments')
         print(self.num_segments)
         self.cube_list = np.arange(0, self.num_segments)
@@ -36,13 +36,15 @@ class SOLUTION:
              self.sensor_loci.append(flip_coin)
              
         # makes the snake with no neurons
-        for i in range(self.num_segments):
+        i = 0
+        while i < self.num_segments:
             size_dummy = np.zeros(3)
-            for x in range(2):
-                size_dummy[x] = random.random()
+            for x in range(3):
+                size_dummy[x] = random.uniform(0,1)
+                #size_dummy[x] = 1
             
             if i == 0:
-                pyrosim.Send_Cube(name= str(i), pos= [0,0,size_dummy[2]/2], size= size_dummy, x= self.sensor_loci[i])
+                pyrosim.Send_Cube(name= str(i), pos= [0,size_dummy[1]/2,size_dummy[2]/2], size= size_dummy, x= self.sensor_loci[i])
                 #np.append(self.cube_list, )
                 joint_position = [0, size_dummy[1]/2, size_dummy[2]/2]
                 pyrosim.Send_Joint(name = str(i)+'_'+ str(i+1) , parent= str(i), child = str(i+1) , type = "revolute", position = joint_position, jointAxis = "1 0 0")
@@ -52,13 +54,16 @@ class SOLUTION:
                 # relative to previous joint
                 pyrosim.Send_Cube(name= str(i), pos= [0,size_dummy[1]/2,0], size= size_dummy, x= self.sensor_loci[i])
                 # relative to previous joint
-                if self.num_joints < (self.num_segments-1):
-                    pyrosim.Send_Joint(name = str(i)+'_'+ str(i+1), parent = str(i), child = str(i+1), type = "revolute", position = size_dummy, jointAxis = "1 0 0")   
+                #if self.num_joints < (self.num_segments-1) & i < self.num_segments:
+                if i < (self.num_segments -1):
+                    pyrosim.Send_Joint(name = str(i)+'_'+ str(i+1), parent = str(i), child = str(i+1), type = "revolute", position = [0,size_dummy[1],0], jointAxis = "1 0 0")   
                     self.num_joints += 1 
                     print('num_joints')
                     print(self.num_joints)
                     print('joint')
                     print(str(i)+'_'+ str(i+1))
+            
+            i += 1
         
         pyrosim.End()
     
@@ -71,14 +76,14 @@ class SOLUTION:
                 self.numSensorNeurons += 1
             if i < (self.num_segments-1):
                 pyrosim.Send_Motor_Neuron(name = "m"+str(i), jointName = str(i)+'_'+ str(i+1))
-            self.numMotorNeurons = self.num_joints
+            self.numMotorNeurons = self.num_segments - 2
         
         self.weights = np.random.rand(self.numSensorNeurons,self.numMotorNeurons)
         self.weights = 2*self.weights - 1
 
-        for currentRow in range(self.numSensorNeurons):
-            for currentColumn in range(self.numMotorNeurons):
-                pyrosim.Send_Synapse(sourceNeuronName = currentRow, targetNeuronName = currentColumn+self.numSensorNeurons, weight = self.weights[currentRow][currentColumn])
+        # for currentRow in range(self.numSensorNeurons):
+        #     for currentColumn in range(self.numMotorNeurons):
+        #         pyrosim.Send_Synapse(sourceNeuronName = currentRow, targetNeuronName = currentColumn+self.numSensorNeurons, weight = self.weights[currentRow][currentColumn])
         
         pyrosim.End()
 
