@@ -1,1 +1,21 @@
-run search.py as your "button" to run the simulation
+
+In the latest update, I create a "snake" with a random number (between 1 and 10) of cubes o
+random sizes (between .2 and 1). These random links are connected with joints. Each of these 
+joints has a motor neuron, and each link has a 50% chance of gaining a sensor neuron.
+Links without sensors are blue, and links with sensor are green. An example is below:
+![alt text](https://i.imgur.com/C1SHPMn.jpg)
+
+The snakes are given an opportunity to evolve. This is done by beginnning a population
+with randomly generated snakes, and evaluating the fitness, defined as the ability of the
+snakes to move in the y direction:
+   stateOfLinkZero = p.getLinkState(self.robotId,0)
+        positionOfLinkZero = stateOfLinkZero[1]
+        yCoordinateOfLinkZero = positionOfLinkZero[1]
+   The snakes with the highest fitness are then randomly mutated and allowed to evolve, seeding
+   the next generation. This is repeated for a certain number of generations with a certain population
+   size in each, defined in my constants.py file.
+   
+   To run this simulation, clone my directory, and run "py search.py" in your terminal :)
+   Enjoy!!
+   
+   This project is part of CHE 396: Artificial Life, taught by Dr. Sam Kriegman at Northwestern University, Winter 2023
