@@ -3,7 +3,7 @@ In the latest update, I create a "snake" with a random number (between 1 and 10)
 random sizes (between .2 and 1). These random links are connected with joints. Each of these 
 joints has a motor neuron, and each link has a 50% chance of gaining a sensor neuron.
 Links without sensors are blue, and links with sensor are green. An example is below:
-![alt text](https://i.imgur.com/C1SHPMn.jpg)
+![alt text](https://github.com/kat-myers/xenobots_redo/blob/main/snake.jpg?raw=true)
 
 The snakes are given an opportunity to evolve. This is done by beginnning a population
 with randomly generated snakes, and evaluating the fitness, defined as the ability of the
