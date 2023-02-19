@@ -60,22 +60,21 @@ class SOLUTION:
         if self.num_segments_1 > 0:
             print('self.num_segments_1 for torso joint' + str(self.num_segments_1))
             joint_position = [0, size_dummy[1]/2, size_dummy[2]*1.5]
-            pyrosim.Send_Joint(name = '0_1' , parent= str(0), child = str(1) , type = "revolute", position = joint_position, jointAxis = "1 0 0")
+            pyrosim.Send_Joint(name = '0_1' , parent= str(0), child = str(1) , type = "revolute", position = joint_position, jointAxis = "1 0 0", rpy = 0)
             self.num_joints_1 += 1
 
         if self.num_segments_2 > 0:
             print('self.num_segments_2 for torso joint' + str(self.num_segments_2))
             joint_position = [0, -size_dummy[1]/2, size_dummy[2]*1.5]
-            pyrosim.Send_Joint(name = '0_5' , parent= str(0), child = str(self.i_start_2) , type = "revolute", position = joint_position, jointAxis = "1 0 0")
+            pyrosim.Send_Joint(name = '0_5' , parent= str(0), child = str(self.i_start_2) , type = "revolute", position = joint_position, jointAxis = "1 0 0", rpy = 0)
             self.num_joints_2 += 1
     
         if self.num_segments_3 > 0:
             print('self.num_segments_3 for torso joint' + str(self.num_segments_3))
             joint_position = [0, size_dummy[1]/2, 2*size_dummy[2]]
-            pyrosim.Send_Joint(name = '0_10' , parent= str(0), child = str(self.i_start_3) , type = "revolute", position = joint_position, jointAxis = "1 0 0")
+            pyrosim.Send_Joint(name = '0_10' , parent= str(0), child = str(self.i_start_3) , type = "revolute", position = joint_position, jointAxis = "1 0 0", rpy = 0)
             self.num_joints_3 += 1
         
-        # if self.num_segments_4 > 0:
 
         ### MAKE BRANCH 1
         # initializes number of segments and which ones will have a sensor
@@ -98,7 +97,7 @@ class SOLUTION:
             # relative to previous joint
             #if self.num_joints < (self.num_segments-1) & i < self.num_segments:
             if i < (self.num_segments_1 -1):
-                pyrosim.Send_Joint(name = str(i)+'_'+ str(i+1), parent = str(i), child = str(i+1), type = "revolute", position = [0,size_dummy[1],0], jointAxis = "1 0 0")   
+                pyrosim.Send_Joint(name = str(i)+'_'+ str(i+1), parent = str(i), child = str(i+1), type = "revolute", position = [0,size_dummy[1],0], jointAxis = "1 0 0", rpy = 1)   
                 self.num_joints_1 += 1 
             i += 1
         
@@ -123,7 +122,7 @@ class SOLUTION:
             # relative to previous joint
             #if self.num_joints < (self.num_segments-1) & i < self.num_segments:
             if i < (self.num_segments_2 -1):
-                pyrosim.Send_Joint(name = str(i)+'_'+ str(i+1), parent = str(i), child = str(i+1), type = "revolute", position = [0,-size_dummy[1],0], jointAxis = "1 0 0")   
+                pyrosim.Send_Joint(name = str(i)+'_'+ str(i+1), parent = str(i), child = str(i+1), type = "revolute", position = [0,-size_dummy[1],0], jointAxis = "1 0 0", rpy = 1)   
                 self.num_joints_2 += 1 
             i += 1
         
@@ -148,7 +147,7 @@ class SOLUTION:
             # relative to previous joint
             #if self.num_joints < (self.num_segments-1) & i < self.num_segments:
             if i < (self.num_segments_3 -1):
-                pyrosim.Send_Joint(name = str(i)+'_'+ str(i+1), parent = str(i), child = str(i+1), type = "revolute", position = [0,0,size_dummy[2]], jointAxis = "1 0 0")   
+                pyrosim.Send_Joint(name = str(i)+'_'+ str(i+1), parent = str(i), child = str(i+1), type = "revolute", position = [0,0,size_dummy[2]], jointAxis = "1 1 0", rpy = 2)   
                 self.num_joints_3 += 1 
             i += 1
 

@@ -134,11 +134,11 @@ def Send_Cube(name="default",pos=[0,0,0],size=[1,1,1], x = 0):
 
     availableLinkIndex = availableLinkIndex + 1
 
-def Send_Joint(name,parent,child,type,position,jointAxis):
+def Send_Joint(name,parent,child,type,position,jointAxis,rpy):
 
-    joint = JOINT(name,parent,child,type,position)
+    joint = JOINT(name,parent,child,type,position,rpy)
 
-    joint.Save(f,jointAxis)
+    joint.Save(f,jointAxis,rpy)
 
 def Send_Motor_Neuron(name,jointName):
 
