@@ -1,9 +1,10 @@
+# Welcome to the 3D Random-Generated Creatures Update!
+## How Creatures Are Generated
 In the latest update, I create 3D, randomly-generated creatures. Each creature consists of a root link, called a torso, and has the opportunity to 
 generate 0 to 4 segments at each branching point from the torso. The creatures can have 0 to 4 branching points, which are connected via joints at random
 values along the face of the torso. A diagram for how these creatures are generated is shown below:
 ![A7_Creature_Generation](https://user-images.githubusercontent.com/122335561/220019495-a9e14a35-746b-4593-9f92-f7327993776e.png)
 (inspiration for diagram from Karl Sims)
-
 
 
 Each branch's segments are random sizes between .2 and 1, and are connected via joints at random points on the previous segment's face. The joints 
@@ -17,6 +18,16 @@ Links without sensors are blue, and links with sensor are green. An example is b
 The creatures are also generated to minimize intersection with other segments. Adjacent cubes are allowed to intersect, but nonadjancent cubes or cubes from different
 branches are stopped from doing so by checking that the next generated cube will not generate into a position where a cube already exists
 
+## The Body
+With this current code, the creature's individual links are still limited to rectangular prisms with any dimension randomly varying from .2 to 1. 
+Movements are based on revolute joints with varying axes that can operated at angles with the addition of the "roll-pitch-yaw" argument I added in "Send_Joint"
+
+## The Brain
+Each creature's joints contain a motor neuron, and each link has a 50% chance of containing a sensor neuron. Within each branch from the torso root link, all motor
+and sensor neurons are connected via synapses. However, no connections are present between the different branches in this iteration. This allows for isolated
+bevahior within each branch, which might make coordinated movement more difficult for my creatures.
+
+## Evolution
 The creatures are given an opportunity to evolve. This is done by beginnning a population
 with randomly generated creatures, and evaluating the fitness, defined as the ability of the
 snakes to move in the y direction:
@@ -27,7 +38,9 @@ The creatures with the highest fitness are then randomly mutated and allowed to 
 the next generation. This is repeated for a certain number of generations with a certain population
 size in each, defined in my constants.py file.
    
+## How to Run
 To run this simulation, clone my directory, fetch branch assignment7, and run "py search.py" in your terminal :)
 Enjoy!!
    
 This project is part of CHE 396: Artificial Life, taught by Dr. Sam Kriegman at Northwestern University, Winter 2023
+
