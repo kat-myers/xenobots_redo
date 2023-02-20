@@ -1,5 +1,3 @@
-
-#Welcome to Xenobots! Here is my 3D Creatures Update :)
 In the latest update, I create 3D, randomly-generated creatures. Each creature consists of a root link, called a torso, and has the opportunity to 
 generate 0 to 4 segments at each branching point from the torso. The creatures can have 0 to 4 branching points, which are connected via joints at random
 values along the face of the torso. A diagram for how these creatures are generated is shown below:
