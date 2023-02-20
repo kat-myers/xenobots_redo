@@ -1,1 +1,31 @@
-# mybots
+
+#Welcome to Xenobots! Here is my 3D Creatures Update :)
+In the latest update, I create 3D, randomly-generated creatures. Each creature consists of a root link, called a torso, and has the opportunity to 
+generate 0 to 4 segments at each branching point from the torso. The creatures can have 0 to 4 branching points, which are connected via joints at random
+values along the face of the torso. A diagram for how these creatures are generated is shown below:
+https://github.com/kat-myers/xenobots_redo/blob/main/A7_Creature_Generation.png (inspiration for diagram from Karl Sims)
+
+Each branch's segments are random sizes between .2 and 1, and are connected via joints at random points on the previous segment's face. The joints 
+have been modified so that they can now be generated diagonally using "roll-pitch-yaw" arguments passed when the joint is defined.
+
+Each of these joints has a motor neuron, and each link has a 50% chance of gaining a sensor neuron.
+Links without sensors are blue, and links with sensor are green. An example is below:
+!snake.jpg(https://github.com/kat-myers/xenobots_redo/blob/main/snake.JPG)
+
+The creatures are also generated to minimize intersection with other segments. Adjacent cubes are allowed to intersect, but nonadjancent cubes or cubes from different
+branches are stopped from doing so by checking that the next generated cube will not generate into a position where a cube already exists
+
+The creatures are given an opportunity to evolve. This is done by beginnning a population
+with randomly generated creatures, and evaluating the fitness, defined as the ability of the
+snakes to move in the y direction:
+   stateOfLinkZero = p.getLinkState(self.robotId,0)
+        positionOfLinkZero = stateOfLinkZero[1]
+        yCoordinateOfLinkZero = positionOfLinkZero[1]
+The creatures with the highest fitness are then randomly mutated and allowed to evolve, seeding
+the next generation. This is repeated for a certain number of generations with a certain population
+size in each, defined in my constants.py file.
+   
+To run this simulation, clone my directory, fetch branch assignment7, and run "py search.py" in your terminal :)
+Enjoy!!
+   
+This project is part of CHE 396: Artificial Life, taught by Dr. Sam Kriegman at Northwestern University, Winter 2023
