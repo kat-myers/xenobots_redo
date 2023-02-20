@@ -15,9 +15,11 @@ class SIMULATION:
         
             if self.directOrGUI == "DIRECT":
                 p.connect(p.DIRECT)
+                p.configureDebugVisualizer(p.COV_ENABLE_GUI,0)
 
             else:
                 p.connect(p.GUI)
+                p.configureDebugVisualizer(p.COV_ENABLE_GUI,0)
                 
             self.world = WORLD()
             self.robot = ROBOT(solutionID)

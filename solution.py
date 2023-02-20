@@ -55,7 +55,7 @@ class SOLUTION:
         size_dummy = np.zeros(3)
         for x in range(3):
             size_dummy[x] = random.uniform(0,1) * 1.3
-        pyrosim.Send_Cube(name= str(0), pos= [0,0,size_dummy[2]*1.5], size= size_dummy, x= 1)
+        pyrosim.Send_Cube(name= str(0), pos= [0,0,size_dummy[2]*1.5], size= size_dummy, x= self.sensor_loci_1[0])
         
         if self.num_segments_1 > 0:
             print('self.num_segments_1 for torso joint' + str(self.num_segments_1))
@@ -66,13 +66,13 @@ class SOLUTION:
         if self.num_segments_2 > 0:
             print('self.num_segments_2 for torso joint' + str(self.num_segments_2))
             joint_position = [0, -size_dummy[1]/2, size_dummy[2]*1.5]
-            pyrosim.Send_Joint(name = '0_5' , parent= str(0), child = str(self.i_start_2) , type = "revolute", position = joint_position, jointAxis = "1 0 0", rpy = 0)
+            pyrosim.Send_Joint(name = '0_5' , parent= str(0), child = str(self.i_start_2) , type = "revolute", position = joint_position, jointAxis = "1 0 0", rpy = 2)
             self.num_joints_2 += 1
     
         if self.num_segments_3 > 0:
             print('self.num_segments_3 for torso joint' + str(self.num_segments_3))
             joint_position = [0, size_dummy[1]/2, 2*size_dummy[2]]
-            pyrosim.Send_Joint(name = '0_10' , parent= str(0), child = str(self.i_start_3) , type = "revolute", position = joint_position, jointAxis = "1 0 0", rpy = 0)
+            pyrosim.Send_Joint(name = '0_10' , parent= str(0), child = str(self.i_start_3) , type = "revolute", position = joint_position, jointAxis = "1 0 0", rpy = 1)
             self.num_joints_3 += 1
         
 
