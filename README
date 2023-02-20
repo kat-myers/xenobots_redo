@@ -24,7 +24,7 @@ The creatures with the highest fitness are then randomly mutated and allowed to 
 the next generation. This is repeated for a certain number of generations with a certain population
 size in each, defined in my constants.py file.
    
-To run this simulation, clone my directory, and run "py search.py" in your terminal :)
+To run this simulation, clone my directory, fetch branch assignment7, and run "py search.py" in your terminal :)
 Enjoy!!
    
 This project is part of CHE 396: Artificial Life, taught by Dr. Sam Kriegman at Northwestern University, Winter 2023
