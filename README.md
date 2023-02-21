@@ -6,6 +6,7 @@ values along the face of the torso. A diagram for how these creatures are genera
 ![A7_Creature_Generation](https://user-images.githubusercontent.com/122335561/220019495-a9e14a35-746b-4593-9f92-f7327993776e.png)
 (inspiration for diagram from Karl Sims)
 
+![IMG_0047](https://user-images.githubusercontent.com/122335561/220421421-a27ecf51-5b58-4ecf-8df8-dacae1fefaa6.jpg)
 
 Each branch's segments are random sizes between .2 and 1, and are connected via joints at random points on the previous segment's face. The joints 
 have been modified so that they can now be generated diagonally using "roll-pitch-yaw" arguments passed when the joint is defined.
