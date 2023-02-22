@@ -156,36 +156,49 @@ class SOLUTION:
     def Create_Brain(self):
         pyrosim.Start_NeuralNetwork("brain" + str(self.myID) + ".nndf")
         
+        self.sensor_b1 = []
+        self.sensor_b2 = []
+        self.sensor_b3 = []
+        self.sensor_b4 = []
+        
+        self.motor_b1 = []
+        self.motor_b2 = []
+        self.motor_b3 = []
+        self.motor_b4 = []
+
         for i in range(self.num_segments_1):
-            # if self.sensor_loci_1[i] == 1:
-            #     pyrosim.Send_Sensor_Neuron(name = "s"+str(i), linkName = str(i))
-            #     self.numSensorNeurons += 1
+            if self.sensor_loci_1[i] == 1:
+                pyrosim.Send_Sensor_Neuron(name = "s"+str(i), linkName = str(i))
+                np.append(self.sensor_b1, "s"+str(i))
             if i < (self.num_segments_1-1):
                 pyrosim.Send_Motor_Neuron(name = "m"+str(i), jointName = str(i)+'_'+ str(i+1))
-                self.numMotorNeurons += self.num_segments_1
-        
+                np.append(self.motor_b1, "m"+str(i))
+                
         for i in range(self.i_start_2,self.num_segments_2):
             if self.sensor_loci_2[i - self.i_start_2] == 1:
                 pyrosim.Send_Sensor_Neuron(name = "s"+str(i), linkName = str(i))
-                self.numSensorNeurons += 1
+                np.append(self.sensor_b2, "s"+str(i))
             if i < (self.num_segments_2-1):
                 pyrosim.Send_Motor_Neuron(name = "m"+str(i), jointName = str(i)+'_'+ str(i+1))
-            self.numMotorNeurons += self.num_segments_2- 2
+                np.append(self.motor_b2, "m"+str(i))
         
         for i in range(self.i_start_3,self.num_segments_3):
             if self.sensor_loci_3[i - self.i_start_3] == 1:
                 pyrosim.Send_Sensor_Neuron(name = "s"+str(i), linkName = str(i))
-                self.numSensorNeurons += 1
+                np.append(self.sensor_b3, "s"+str(i))
             if i < (self.num_segments_3-1):
                 pyrosim.Send_Motor_Neuron(name = "m"+str(i), jointName = str(i)+'_'+ str(i+1))
-            self.numMotorNeurons += self.num_segments_3- 2
+                np.append(self.motor_b3, "m"+str(i))
         
-        self.weights = np.random.rand(self.numSensorNeurons,self.numMotorNeurons)
-        self.weights = 2*self.weights - 1
+        self.weights_1 = 2*(np.random.rand(len(self.sensor_b1),len(self.motor_b1))) -1
+        self.weights_2 = 2*(np.random.rand(len(self.sensor_b2),len(self.motor_b2))) -1
+        self.weights_3 = 2*(np.random.rand(len(self.sensor_b3),len(self.motor_b3))) -1
+        self.weights_4 = 2*(np.random.rand(len(self.sensor_b4),len(self.motor_b4))) -1
 
-        # for currentRow in range(self.numSensorNeurons):
-        #     for currentColumn in range(self.numMotorNeurons):
-        #         pyrosim.Send_Synapse(sourceNeuronName = currentRow, targetNeuronName = currentColumn+self.numSensorNeurons, weight = self.weights[currentRow][currentColumn])
+        ### loops for creating synapses
+        for i in range(len(self.sensor_b1)):
+             for j in range(len(self.motor_b1)):
+                pyrosim.Send_Synapse(sourceNeuronName = i, targetNeuronName = j+len(self.sensor_b1), weight = self.weights_1[i][j])
         
         pyrosim.End()
 
