@@ -1,0 +1,16 @@
+<neuralNetwork>
+    <neuron name = "0" type = "motor"  jointName = "0_1" />
+    <neuron name = "1" type = "motor"  jointName = "1_2" />
+    <neuron name = "2" type = "motor"  jointName = "2_3" />
+    <neuron name = "3" type = "motor"  jointName = "3_4" />
+    <neuron name = "4" type = "motor"  jointName = "4_5" />
+    <neuron name = "5" type = "motor"  jointName = "5_6" />
+    <neuron name = "6" type = "motor"  jointName = "6_7" />
+    <neuron name = "9" type = "sensor" linkName = "0" />
+    <neuron name = "10" type = "sensor" linkName = "1" />
+    <neuron name = "11" type = "sensor" linkName = "2" />
+    <neuron name = "12" type = "sensor" linkName = "3" />
+    <neuron name = "13" type = "sensor" linkName = "5" />
+    <neuron name = "14" type = "sensor" linkName = "6" />
+    <neuron name = "15" type = "sensor" linkName = "7" />
+</neuralNetwork>

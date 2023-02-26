@@ -10,9 +10,9 @@ sleep = 1/120
 
 
 numSensorNeurons = 4
-numMotorNeurons = 8
+numMotorNeurons = 4
 
-motorJointRange = 1.0
+motorJointRange = 2.0
 backLegAmplitude = np.pi/4
 backLegFrequency = 10
 backLegPhaseOffset = 5
@@ -21,5 +21,5 @@ frontLegFrequency = 10
 frontLegPhaseOffset = 5
 
 
-numberOfGenerations = 1
+numberOfGenerations = 10
 populationSize = 2

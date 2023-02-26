@@ -9,8 +9,10 @@ import os
 
 class PARALLEL_HILL_CLIMBER:
     def __init__(self):
-        os.system("del brain*.nndf")
-        os.system("del fitness*.txt")
+        if os.path.exists('brain*.nndf'):
+            os.system("del brain*.nndf")
+        if os.path.exists("fitness*.txt"):
+            os.system("del fitness*.txt")
         
         self.nextAvailableID = 0
         self.parents = {}
@@ -47,13 +49,15 @@ class PARALLEL_HILL_CLIMBER:
             self.children[parent] = child
             self.nextAvailableID += 1
     
+    
+            
     def Mutate(self):
         for child in self.children.keys():
             self.children[child].Mutate()
         
     def Select(self):
         for key in self.parents.keys():
-            if self.parents[key].fitness > self.children[key].fitness:
+            if self.parents[key].fitness < self.children[key].fitness:
                 self.parents[key] = self.children[key]
         
     def Print(self):

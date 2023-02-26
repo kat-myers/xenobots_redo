@@ -43,9 +43,13 @@ class NEURAL_NETWORK:
                 
     def Get_Neuron_Names(self):
         
-        neuronList = self.neurons.keys()
+        # neuronList = self.neurons.keys()
         
-        return(neuronList)
+        # return(neuronList)
+        key_list = []
+        for i,key in enumerate(self.neurons):
+            key_list.append(key)
+        return key_list
     
     def Is_Motor_Neuron(self, neuronName):
         

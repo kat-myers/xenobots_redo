@@ -18,7 +18,7 @@ class ROBOT:
         self.Prepare_To_Sense()
         self.Prepare_To_Act()    
 
-        os.system("del brain" + str(self.solutionId) + ".nndf")        
+        #os.system("del brain" + str(self.solutionId) + ".nndf")        
 
 
     #Sensing
@@ -54,16 +54,25 @@ class ROBOT:
                 
     #Fitness characterization
     def Get_Fitness(self):
-        stateOfLinkZero = p.getLinkState(self.robotId,0)
+        # stateOfLinkZero = p.getLinkState(self.robotId,0)
         
-        positionOfLinkZero = stateOfLinkZero[1]
-        #yCoordinateOfLinkZero = positionOfLinkZero[0]
-        yCoordinateOfLinkZero = positionOfLinkZero[1]
+        # positionOfLinkZero = stateOfLinkZero[1]
+        # #yCoordinateOfLinkZero = positionOfLinkZero[0]
+        # yCoordinateOfLinkZero = positionOfLinkZero[1]
         
-        ## to revise fitness function, edit here
+        # ## to revise fitness function, edit here
         
-        #tempFileName = 
-        #fitnessFileName = 
+        # #tempFileName = 
+        # #fitnessFileName = 
+
+
+        basePositionAndOrientation = p.getBasePositionAndOrientation(self.robotId)
+        basePosition = basePositionAndOrientation[0]
+        xCoordinateOfLinkZero = basePosition[0]
+        #print('base position', basePosition)
+        yCoordinateOfLinkZero = basePosition[1]
+        zCoordinateOfLinkZero = basePosition[2]
+
         
         f = open("tmp" + str(self.solutionId) + ".txt", "w")
         f.write(str(yCoordinateOfLinkZero))
