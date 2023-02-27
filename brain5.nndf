@@ -1,5 +1,6 @@
 <neuralNetwork>
     <neuron name = "0" type = "motor"  jointName = "0_1" />
     <neuron name = "1" type = "motor"  jointName = "1_2" />
-    <neuron name = "2" type = "motor"  jointName = "2_3" />
+    <neuron name = "10" type = "sensor" linkName = "10" />
+    <neuron name = "10" type = "motor"  jointName = "10_11" />
 </neuralNetwork>

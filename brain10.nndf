@@ -2,8 +2,6 @@
     <neuron name = "0" type = "motor"  jointName = "0_1" />
     <neuron name = "5" type = "sensor" linkName = "5" />
     <neuron name = "5" type = "motor"  jointName = "5_6" />
-    <neuron name = "6" type = "sensor" linkName = "6" />
-    <neuron name = "6" type = "motor"  jointName = "6_7" />
     <neuron name = "10" type = "sensor" linkName = "10" />
     <neuron name = "10" type = "motor"  jointName = "10_11" />
     <neuron name = "11" type = "motor"  jointName = "11_12" />

@@ -1,0 +1,4 @@
+<neuralNetwork>
+    <neuron name = "5" type = "sensor" linkName = "5" />
+    <neuron name = "5" type = "motor"  jointName = "5_6" />
+</neuralNetwork>

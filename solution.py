@@ -64,8 +64,11 @@ class SOLUTION:
 
 
         ### MAKE THE TORSO
+        size_dummy = np.zeros(3)
+        for x in range(3):
+            size_dummy[x] = random.uniform(0,1) * 1.3
         pyrosim.Send_Cube(name= str(0), pos= [0,0,.25], size= [.5,.5,.5], x= 0)
-        pyrosim.Send_Joint( name = "0_1" , parent= "0" , child = "1" , type = "revolute", position = [0,0.25,0.25], jointAxis = '1 0 0',rpy = random.randint(0,2))
+        pyrosim.Send_Cube(name= str(0), pos= [0,0,size_dummy[2]*1.5], size= size_dummy, x= 0)
         
         
         i=1
