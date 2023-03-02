@@ -1,1 +1,19 @@
-#Importsimport numpy as npimport matplotlib.pyplot as plt#AnglesbackTargetAngles = np.load("data/backTargetAngles.npy")frontTargetAngles = np.load("data/frontTargetAngles.npy")plt.plot(backTargetAngles)plt.plot(frontTargetAngles)#Load saved sensor values#backLegSensorValues = np.load("data/backLegSensorValues.npy")#frontLegSensorValues = np.load("data/frontLegSensorValues.npy")#Plotting#plt.plot(backLegSensorValues, label = "Back Leg",linewidth = 3)#plt.plot(frontLegSensorValues, label = "Front Leg")#plt.title("Front and Back Leg Sensor Values")#plt.xlabel("Step")#plt.ylabel("Sensor Value")#plt.legend()plt.show()
+import numpy as np
+import matplotlib.pyplot as mp 
+
+backLegSensorValues = np.load("data/backLegSensorValues.npy")
+frontLegSensorValues = np.load("data/frontLegSensorValues.npy")
+#print(backLegSensorValues)
+
+# target angles
+targetAngles_BackLeg = np.load("data/targetAngles_BackLeg.npy")
+targetAngles_FrontLeg = np.load("data/targetAngles_FrontLeg.npy")
+
+mp.plot(targetAngles_BackLeg, label = 'target angles back leg')
+mp.plot(targetAngles_FrontLeg, label = 'target angles front leg', linewidth=4)
+
+#mp.plot(targetAngles, label = 'target angles', linewidth=4)
+#mp.plot(backLegSensorValues, label = 'back leg sensor values', linewidth=4)
+#mp.plot(frontLegSensorValues, label = 'front leg sensor values')
+mp.legend()
+mp.show()

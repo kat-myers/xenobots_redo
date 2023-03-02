@@ -1,25 +1,30 @@
-#Imports
 import numpy as np
+import random
 
-#Variables
-iterations = 1000
+num_iters = 10000
+sleep_time = 1/1000
 
-maxForce = 100
+amplitude_BackLeg = np.pi/4
+frequency_BackLeg = 10
+phaseOffset_BackLeg = -np.pi/4
 
-sleep = 1/120
+amplitude_FrontLeg = np.pi/4
+frequency_FrontLeg = 10
+phaseOffset_FrontLeg = np.pi/4
 
+# target position
+a = -np.pi/2
+b = np.pi/2
+targPos = (b-a) * random.random() + a
+#targPos = random.uniform(a,b)
 
-numSensorNeurons = 4
-numMotorNeurons = 4
+#100
 
-motorJointRange = 2.0
-backLegAmplitude = np.pi/4
-backLegFrequency = 10
-backLegPhaseOffset = 5
-frontLegAmplitude = np.pi/4
-frontLegFrequency = 10
-frontLegPhaseOffset = 5
+numberOfGenerations = 20
+populationSize = 5
 
+numMotorNeurons = random.randint(1,7)
+maxLen = 0.5
 
-numberOfGenerations = 10
-populationSize = 2
+motorJointRange = 1
+force = 100
